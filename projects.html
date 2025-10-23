@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio - Proyectos | NILA Digital</title>
+  <meta name="description" content="Portfolio de proyectos — galería de sitios web y trabajos de branding.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home.html">NILA Digital</a>
+      <nav class="site-nav" id="siteNav">
+                <a href="index.html">Inicio</a>
+            </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="projects-hero">
+      <div class="container">
+        <h2>Proyectos destacados</h2>
+        <p>Galería de trabajos recientes. (links se proporcionarán después).</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div id="projectsGrid" class="projects-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- Modal -->
+    <div id="projectModal" class="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="project-modal-backdrop" data-dismiss="modal"></div>
+      <div class="project-modal-panel" role="document">
+        <button class="modal-close" aria-label="Cerrar">×</button>
+        <img class="modal-media" alt="">
+        <div class="modal-body">
+          <h3 class="modal-title"></h3>
+          <p class="modal-desc"></p>
+          <a class="modal-open project-cta" target="_blank" rel="noopener noreferrer">Abrir proyecto</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="projects.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "project-1",
+    "title": "Tienda Online - ACME",
+    "description": "E-commerce responsive con pasarela de pagos y panel administrativo.",
+    "url": "#",
+    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%23005187'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>ACME - Tienda</text></svg>"
+  },
+  {
+    "id": "project-2",
+    "title": "Landing Producto - Nova",
+    "description": "Landing optimizada para conversión con pruebas A/B.",
+    "url": "#",
+    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%234db2dc'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23000587' text-anchor='middle' dominant-baseline='middle'>Nova - Landing</text></svg>"
+  },
+  {
+    "id": "project-3",
+    "title": "Portal Corporativo - Solis",
+    "description": "Portal institucional con CMS y accesos diferenciados.",
+    "url": "#",
+    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%234d82bc'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23fcffff' text-anchor='middle' dominant-baseline='middle'>Solis - Portal</text></svg>"
+  },
+  {
+    "id": "project-4",
+    "title": "Marca & Branding - Luma",
+    "description": "Identidad visual, guía de estilo y activos digitales.",
+    "url": "#",
+    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%2384b6f4'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23005187' text-anchor='middle' dominant-baseline='middle'>Luma - Branding</text></svg>"
+  },
+  {
+    "id": "project-5",
+    "title": "Michi", 
+    "description": "Identidad michi",
+    "url": "#", 
+    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%2384b6f4'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23005187' text-anchor='middle' dominant-baseline='middle'>Luma - Branding</text></svg>"
+  }
+]
