@@ -1,37 +1,38 @@
 [
   {
     "id": "project-1",
-    "title": "Tienda Online - ACME",
-    "description": "E-commerce responsive con pasarela de pagos y panel administrativo.",
-    "url": "#",
-    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%23005187'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>ACME - Tienda</text></svg>"
+    "title": "Kyrion - Inmobiliaria",
+    "description": "Sitio web para finca raíz con enfoque en generación de leads directos a WhatsApp Business y consultas de propiedades.",
+    "url": "https://www.kyrion.co/",
+    "thumbnail": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=520&fit=crop"
   },
   {
     "id": "project-2",
-    "title": "Landing Producto - Nova",
-    "description": "Landing optimizada para conversión con pruebas A/B.",
-    "url": "#",
-    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%234db2dc'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23000587' text-anchor='middle' dominant-baseline='middle'>Nova - Landing</text></svg>"
+    "title": "ZAC - Soluciones Eléctricas",
+    "description": "Sitio corporativo para servicios de CCTV, energía solar y electricidad general, posicionamiento de servicios especializados.",
+    "url": "https://www.zac.com.co/",
+    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25856e883?w=800&h=520&fit=crop"
   },
   {
     "id": "project-3",
-    "title": "Portal Corporativo - Solis",
-    "description": "Portal institucional con CMS y accesos diferenciados.",
-    "url": "#",
-    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%234d82bc'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23fcffff' text-anchor='middle' dominant-baseline='middle'>Solis - Portal</text></svg>"
+    "title": "Car Audio Bogotá",
+    "description": "Sitio optimizado para Google Maps con enfoque en atraer clientes locales para audio vehicular, polarizados y seguridad.",
+    "url": "https://www.caraudiobogota.com/",
+    "thumbnail": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=520&fit=crop"
   },
   {
     "id": "project-4",
-    "title": "Marca & Branding - Luma",
-    "description": "Identidad visual, guía de estilo y activos digitales.",
-    "url": "#",
-    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%2384b6f4'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23005187' text-anchor='middle' dominant-baseline='middle'>Luma - Branding</text></svg>"
+    "title": "Cuidado a Tus Pies - Podología",
+    "description": "Sitio web médico especializado en podología con información educativa y agendamiento de consultas.",
+    "url": "https://www.cuidadoatuspies.com/",
+    "thumbnail": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=520&fit=crop"
   },
   {
     "id": "project-5",
-    "title": "Michi", 
-    "description": "Identidad michi",
-    "url": "#", 
-    "thumbnail": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><rect width='100%' height='100%' fill='%2384b6f4'/><text x='50%' y='50%' font-family='Arial, Helvetica, sans-serif' font-size='36' fill='%23005187' text-anchor='middle' dominant-baseline='middle'>Luma - Branding</text></svg>"
+    "title": "Sorbetes de Guanábana",
+    "description": "Creación y optimización de Google Business para negocio de venta de sorbetes de guanábana, aumentando visibilidad local.",
+    "url": "https://maps.app.goo.gl/nJTdwTJw9n1o5XiH9",
+    "thumbnail": "https://media.istockphoto.com/id/1167028136/photo/three-little-kittens-in-the-green-grass.jpg?b=1&s=612x612&w=0&k=20&c=t_-wQ3Ve_vCsUJrB7wLAKvuCtI4-zr-rPCQRsly0e8A="
   }
 ]
+

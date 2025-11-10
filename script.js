@@ -34,92 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- END MENU LOGIC ---
 
-    // FAQ Accordion Logic
-document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', () => {
-            const faqItem = question.parentElement;
-            const isActive = faqItem.classList.contains('active');
-
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        });
-    });
-
-    const sliderTrack = document.getElementById('sliderTrack');
-    const prevBtn = document.querySelector('.slider-btn.prev');
-    const nextBtn = document.querySelector('.slider-btn.next');
-
-    function getCardWidth() {
-        const card = sliderTrack.children[1]; 
-        return card ? card.offsetWidth + 15 : 195;
-    }
-
-    let currentPosition = 0;
-    let isTransitioning = false;
-    
-    const firstCard = sliderTrack.children[0].cloneNode(true);
-    const lastCard = sliderTrack.children[sliderTrack.children.length - 1].cloneNode(true);
-    
-    sliderTrack.appendChild(firstCard);
-    sliderTrack.insertBefore(lastCard, sliderTrack.children[0]);
-    
-    const initialWidth = getCardWidth();
-    currentPosition = -initialWidth;
-    sliderTrack.scrollLeft = -currentPosition;
-    
-    function slideTo(position, instant = false) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        
-        const dynamicCardWidth = getCardWidth();
-        
-        if (!instant) {
-            sliderTrack.style.scrollBehavior = 'smooth';
-        } else {
-            sliderTrack.style.scrollBehavior = 'auto';
-        }
-        
-        currentPosition = position;
-        sliderTrack.scrollLeft = -currentPosition;
-        
-        setTimeout(() => {
-            isTransitioning = false;
-            
-            if (currentPosition <= -((sliderTrack.children.length - 1) * dynamicCardWidth)) {
-                currentPosition = -dynamicCardWidth;
-                sliderTrack.style.scrollBehavior = 'auto';
-                sliderTrack.scrollLeft = -currentPosition;
-            } else if (currentPosition >= 0) {
-                currentPosition = -((sliderTrack.children.length - 2) * dynamicCardWidth);
-                sliderTrack.style.scrollBehavior = 'auto';
-                sliderTrack.scrollLeft = -currentPosition;
-            }
-        }, 300);
-    }
-    
-    prevBtn.addEventListener('click', () => {
-        slideTo(currentPosition + getCardWidth());
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        slideTo(currentPosition - getCardWidth());
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
     // Slider Logic for Why Section
     const sliderTrack = document.getElementById('sliderTrack');
     const prevBtn = document.querySelector('.slider-btn.prev');
@@ -212,3 +126,4 @@ document.querySelectorAll('.faq-question').forEach(question => {
         });
     });
 });
+
