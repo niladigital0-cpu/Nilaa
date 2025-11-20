@@ -1,128 +1,174 @@
-// Fetch projects.json and render project cards
+
 (function () {
-  // No embedded fallback: projects must be loaded from `projects.json` via fetch.
 
-  async function loadProjects() {
-    const grid = document.getElementById('projectsGrid');
-    try {
-      const res = await fetch('projects.json', { cache: 'no-cache' });
-      if (!res.ok) throw new Error('No se pudo cargar projects.json');
-      const projects = await res.json();
-      renderProjects(projects);
-    } catch (err) {
-      console.error('No se pudo cargar projects.json:', err);
-      // Inform the user visually that fetch failed and that a local server is required
-      if (grid) {
-        const note = document.createElement('div');
-        note.style.color = '#f1d387';
-        note.style.marginTop = '12px';
-        note.style.fontWeight = '700';
-        note.textContent = 'Error: no se pudo cargar projects.json. Asegúrate de servir el sitio con un servidor local (por ejemplo: python -m http.server 8000) para que fetch funcione correctamente.';
-        grid.parentElement.appendChild(note);
-      }
-      return;
+    async function loadProjects() {
+        const grid = document.getElementById('projectsGrid');
+        try {
+            const res = await fetch('projects.json', { cache: 'no-cache' });
+            if (!res.ok) throw new Error('No se pudo cargar projects.json');
+            const projects = await res.json();
+            renderProjects(projects);
+        } catch (err) {
+            console.error('No se pudo cargar projects.json:', err);
+            if (grid) {
+                const note = document.createElement('div');
+                note.style.color = '#f1d387';
+                note.style.marginTop = '12px';
+                note.style.fontWeight = '700';
+                note.textContent = 'Error: no se pudo cargar projects.json. Asegúrate de servir el sitio con un servidor local (por ejemplo: python -m http.server 8000) para que fetch funcione correctamente.';
+                grid.parentElement.appendChild(note);
+            }
+            return;
+        }
     }
-  }
 
-  function createCard(p) {
-    // Use a button-like card that opens the modal
-    const card = document.createElement('button');
-    card.className = 'project-card';
-    card.type = 'button';
-    card.setAttribute('data-project-id', p.id);
-    card.setAttribute('aria-labelledby', p.id + '-title');
+    
+    let activeProjectId = null;
 
-    const img = document.createElement('img');
-    img.className = 'project-media';
-    img.src = p.thumbnail || '';
-    img.alt = p.title + ' — miniatura';
+    function createCard(p) {
+        const card = document.createElement('button');
+        card.className = 'project-card';
+        card.type = 'button';
+        card.setAttribute('data-project-id', p.id);
+        card.setAttribute('aria-labelledby', p.id + '-title');
 
-    const content = document.createElement('div');
-    content.className = 'project-content';
+        // Contenedor imagenes
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'project-media-container';
 
-    const h3 = document.createElement('div');
-    h3.className = 'project-title';
-    h3.id = p.id + '-title';
-    h3.textContent = p.title || 'Proyecto';
+        // Vista inicial
+        const img1 = document.createElement('img');
+        img1.className = 'project-media imagen-1';
+        img1.id = `img1-${p.id}`; // Añadimos ID para fácil referencia
+        img1.src = p.thumbnail || '';
+        img1.alt = p.title + ' — miniatura';
 
-    const desc = document.createElement('div');
-    desc.className = 'project-desc';
-    desc.textContent = p.description || '';
+        // IMAGEN 2
+        const img2 = document.createElement('img');
+        img2.className = 'project-media imagen-2';
+        img2.id = `img2-${p.id}`; 
+        img2.src = p.fullImage || p.thumbnail || '';
+        img2.alt = p.title + ' — abierta';
+        img2.style.display = 'none';
 
-    const cta = document.createElement('span');
-    cta.className = 'project-cta';
-    cta.textContent = 'Abrir';
+        imgContainer.appendChild(img1);
+        imgContainer.appendChild(img2);
 
-    content.appendChild(h3);
-    content.appendChild(desc);
-    content.appendChild(cta);
+        const content = document.createElement('div');
+        content.className = 'project-content';
 
-    card.appendChild(img);
-    card.appendChild(content);
+        const h3 = document.createElement('div');
+        h3.className = 'project-title';
+        h3.id = p.id + '-title';
+        h3.textContent = p.title || 'Proyecto';
 
-    // open modal on click
-    card.addEventListener('click', () => openModal(p));
+        const desc = document.createElement('div');
+        desc.className = 'project-desc';
+        desc.textContent = p.description || '';
 
-    return card;
-  }
+        const cta = document.createElement('span');
+        cta.className = 'project-cta';
+        cta.textContent = 'Abrir';
 
-  // Modal controls
-  const modal = {
-    el: null,
-    img: null,
-    title: null,
-    desc: null,
-    openLink: null,
-    closeBtn: null,
-    backdrop: null,
-  };
+        content.appendChild(h3);
+        content.appendChild(desc);
+        content.appendChild(cta);
 
-  function ensureModal() {
-    if (modal.el) return;
-    modal.el = document.getElementById('projectModal');
-    if (!modal.el) return;
-    modal.img = modal.el.querySelector('.modal-media');
-    modal.title = modal.el.querySelector('.modal-title');
-    modal.desc = modal.el.querySelector('.modal-desc');
-    modal.openLink = modal.el.querySelector('.modal-open');
-    modal.closeBtn = modal.el.querySelector('.modal-close');
-    modal.backdrop = modal.el.querySelector('[data-dismiss="modal"]');
+        card.appendChild(imgContainer);
+        card.appendChild(content);
 
-    modal.closeBtn.addEventListener('click', closeModal);
-    modal.backdrop.addEventListener('click', closeModal);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-  }
+        // open modal on click
+        card.addEventListener('click', () => {
+            img1.style.display = 'none';
+            img2.style.display = 'block';
+            cta.textContent = 'Ver Modal';
+            openModal(p);
+        });
 
-  function openModal(p) {
-    ensureModal();
-    if (!modal.el) return;
-    modal.img.src = p.thumbnail || '';
-    modal.img.alt = p.title || '';
-    modal.title.textContent = p.title || '';
-    modal.desc.textContent = p.description || '';
-    modal.openLink.href = p.url || '#';
-    modal.el.setAttribute('aria-hidden', 'false');
-    modal.el.style.display = 'flex';
-    // set focus to close button for accessibility
-    modal.closeBtn.focus();
-  }
+        return card;
+    }
 
-  function closeModal() {
-    if (!modal.el) return;
-    modal.el.setAttribute('aria-hidden', 'true');
-    modal.el.style.display = 'none';
-  }
+    // Modal controls
+    const modal = {
+        el: null,
+        img: null,
+        title: null,
+        desc: null,
+        openLink: null,
+        closeBtn: null,
+        backdrop: null,
+    };
 
-  function renderProjects(list) {
-    const grid = document.getElementById('projectsGrid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    list.forEach(project => {
-      const node = createCard(project);
-      grid.appendChild(node);
-    });
-  }
+    function ensureModal() {
+        if (modal.el) return;
+        modal.el = document.getElementById('projectModal');
+        if (!modal.el) return;
+        modal.img = modal.el.querySelector('.modal-media');
+        modal.title = modal.el.querySelector('.modal-title');
+        modal.desc = modal.el.querySelector('.modal-desc');
+        modal.openLink = modal.el.querySelector('.modal-open');
+        modal.closeBtn = modal.el.querySelector('.modal-close');
+        modal.backdrop = modal.el.querySelector('[data-dismiss="modal"]');
 
-  // Initialize
-  document.addEventListener('DOMContentLoaded', loadProjects);
+        modal.closeBtn.addEventListener('click', closeModal);
+        modal.backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    }
+
+    function openModal(p) {
+        ensureModal();
+        if (!modal.el) return;
+
+        // Establecer el ID del proyecto activo antes de abrir modal
+        activeProjectId = p.id;
+        
+        // El modal prioriza p.fullImage
+        modal.img.src = p.fullImage || p.thumbnail || ''; 
+        
+        modal.img.alt = p.title || '';
+        modal.title.textContent = p.title || '';
+        modal.desc.textContent = p.description || '';
+        modal.openLink.href = p.url || '#';
+        modal.el.setAttribute('aria-hidden', 'false');
+        modal.el.style.display = 'flex';
+        modal.closeBtn.focus();
+    }
+
+    function closeModal() {
+        if (!modal.el) return;
+        modal.el.setAttribute('aria-hidden', 'true');
+        modal.el.style.display = 'none';
+
+        //regresar la tarjeta al estado inicial
+        if (activeProjectId) {
+            const card = document.querySelector(`[data-project-id="${activeProjectId}"]`);
+            if (card) {
+                // Selecciona la imagen 1 y 2 por sus IDs
+                const img1 = card.querySelector(`#img1-${activeProjectId}`);
+                const img2 = card.querySelector(`#img2-${activeProjectId}`);
+                const cta = card.querySelector('.project-cta');
+
+                if (img1 && img2) {
+                    img1.style.display = 'block';
+                    img2.style.display = 'none';
+                    if (cta) cta.textContent = 'Abrir';
+                }
+            }
+        }
+        // Limpiar el ID activo
+        activeProjectId = null;
+    }
+
+    function renderProjects(list) {
+        const grid = document.getElementById('projectsGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        list.forEach(project => {
+            const node = createCard(project);
+            grid.appendChild(node);
+        });
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', loadProjects);
 })();

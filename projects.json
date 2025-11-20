@@ -2,37 +2,42 @@
   {
     "id": "project-1",
     "title": "Kyrion - Inmobiliaria",
-    "description": "Sitio web para finca raíz con enfoque en generación de leads directos a WhatsApp Business y consultas de propiedades.",
+    "description": "Landing page enfocada en generación de leads directos a WhatsApp Business y consultas de propiedades",
     "url": "https://www.kyrion.co/",
-    "thumbnail": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=520&fit=crop"
+    "thumbnail": "img/k.y.png",
+    "fullImage": "img/kFull.png"
   },
   {
     "id": "project-2",
-    "title": "ZAC - Soluciones Eléctricas",
-    "description": "Sitio corporativo para servicios de CCTV, energía solar y electricidad general, posicionamiento de servicios especializados.",
+    "title": "ZAC - Soluciones en Seguridad, Energía Solar y Electricidad",
+    "description": "Sitio corporativo para ofrecer los servicios especializados y .",
     "url": "https://www.zac.com.co/",
-    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25856e883?w=800&h=520&fit=crop"
+    "thumbnail": "img/za.png",
+    "fullImage": "img/zaFull.png"
   },
   {
     "id": "project-3",
     "title": "Car Audio Bogotá",
     "description": "Sitio optimizado para Google Maps con enfoque en atraer clientes locales para audio vehicular, polarizados y seguridad.",
     "url": "https://www.caraudiobogota.com/",
-    "thumbnail": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=520&fit=crop"
+    "thumbnail": "img/ca.png",
+    "fullImage": "img/caFull.png"
   },
   {
     "id": "project-4",
     "title": "Cuidado a Tus Pies - Podología",
     "description": "Sitio web médico especializado en podología con información educativa y agendamiento de consultas.",
     "url": "https://www.cuidadoatuspies.com/",
-    "thumbnail": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=520&fit=crop"
+    "thumbnail": "img/cap.png",
+    "fullImage": "img/capFull.png"
   },
   {
     "id": "project-5",
     "title": "Sorbetes de Guanábana",
     "description": "Creación y optimización de Google Business para negocio de venta de sorbetes de guanábana, aumentando visibilidad local.",
     "url": "https://maps.app.goo.gl/nJTdwTJw9n1o5XiH9",
-    "thumbnail": "https://media.istockphoto.com/id/1167028136/photo/three-little-kittens-in-the-green-grass.jpg?b=1&s=612x612&w=0&k=20&c=t_-wQ3Ve_vCsUJrB7wLAKvuCtI4-zr-rPCQRsly0e8A="
+    "thumbnail": "",
+    "fullImage": ""
   }
 ]
 
