@@ -1,6 +1,6 @@
 /* Projects page styles */
 body {
-  background: #d3d1d1;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 50%, #fff5fb 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -39,11 +39,11 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  /*background: linear-gradient(135deg, #005187, #df2fa7);*/
-  gap: 10px;
+  background: linear-gradient(135deg, #00518769, #df2fa769);
+  gap: 8px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 5px;
 
 }
 
@@ -249,14 +249,14 @@ body {
   .projects-grid {
     grid-template-columns: auto;
     grid-template-rows: auto;
-    width: 80%;
+  
   }
 .project-card {
-    height: 290px;
+    height: 300px;
   }
   .project-media {
     height: 220px;
-    width: 250px;
+    width: 280px;
   }
 
   .modal-media {
@@ -271,8 +271,4 @@ body {
 
 @media (max-width: 480px) {
 
-  .project-media {
-    height: 180px;
-    width: 180px;
-  }
 }
